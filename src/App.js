@@ -7,6 +7,7 @@ function App() {
   const [fibonacci, setFibonacci] = useState("Carregando");
   const [factorial, setFactorial] = useState("Carregando");
 
+  // TODO: Change according to functions URL
   const api = axios.create({
     baseURL: process.env.API_URL || 'http://localhost:8080/api',
   });
