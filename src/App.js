@@ -13,12 +13,12 @@ function App() {
 
   useEffect(() => {
     const number = new URLSearchParams(document.location.search).get('number');
-    api.get(`/fibonacci?number=${number}`, {}).then((res) => {
+    api.get(`fibonacci?number=${number}`, {}).then((res) => {
       setFibonacci(res.data.message);
     }).catch((res) => {
       setFibonacci(res.data.message)
     });
-    api.get(`/factorial?number=${number}`, {}).then((res) => {
+    api.get(`factorial?number=${number}`, {}).then((res) => {
       setFactorial(res.data.message);
     }).catch((res) => {
       setFactorial(res.data.message)
