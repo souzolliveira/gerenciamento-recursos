@@ -7,10 +7,10 @@ const port = process.env.PORT || 8080;
 
 application.set("etag", "strong");
 
-application.use(express.static(path.join(__dirname, "..", "build")));
+application.use(express.static(path.join(__dirname, "build")));
 
 application.get("/app*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 application.use(express.urlencoded({ extended: true }));
