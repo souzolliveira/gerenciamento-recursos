@@ -8,17 +8,17 @@ function App() {
   const [factorial, setFactorial] = useState("Carregando");
 
   const api = axios.create({
-    baseURL: process.env.API_URL || 'http://localhost:8080/api',
+    baseURL: process.env.API_URL || 'https://us-central1-striped-botany-401121.cloudfunctions.net',
   });
 
   useEffect(() => {
     const number = new URLSearchParams(document.location.search).get('number');
-    api.get(`/fibonacci?number=${number}`, {}).then((res) => {
+    api.get(`gerenciamento-recursos-fibonacci/api/fibonacci?number=${number}`, {}).then((res) => {
       setFibonacci(res.data.message);
     }).catch((res) => {
       setFibonacci(res.data.message)
     });
-    api.get(`/factorial?number=${number}`, {}).then((res) => {
+    api.get(`gerenciamento-recursos-factorial/api/factorial?number=${number}`, {}).then((res) => {
       setFactorial(res.data.message);
     }).catch((res) => {
       setFactorial(res.data.message)
