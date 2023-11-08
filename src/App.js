@@ -7,8 +7,10 @@ function App() {
   const [fibonacci, setFibonacci] = useState("Carregando");
   const [factorial, setFactorial] = useState("Carregando");
 
+  const baseURL = `${window.location.href.slice(0, window.location.href.indexOf('app') - 1)}/api`;
+
   const api = axios.create({
-    baseURL: process.env.API_URL || 'http://localhost:8080/api',
+    baseURL
   });
 
   useEffect(() => {
@@ -16,12 +18,12 @@ function App() {
     api.get(`fibonacci?number=${number}`, {}).then((res) => {
       setFibonacci(res.data.message);
     }).catch((res) => {
-      setFibonacci(res.data.message)
+      setFibonacci(res.data.message);
     });
     api.get(`factorial?number=${number}`, {}).then((res) => {
       setFactorial(res.data.message);
     }).catch((res) => {
-      setFactorial(res.data.message)
+      setFactorial(res.data.message);
     });
   }, []);
 
