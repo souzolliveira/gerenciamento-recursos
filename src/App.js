@@ -8,7 +8,7 @@ function App() {
   const [factorial, setFactorial] = useState("Carregando");
 
   const api = axios.create({
-    baseURL: process.env.API_URL || 'https://34.31.127.201:8080',
+    baseURL: process.env.API_URL || 'http://34.31.127.201:8080',
   });
 
   useEffect(() => {
