@@ -8,17 +8,17 @@ function App() {
   const [factorial, setFactorial] = useState("Carregando");
 
   const api = axios.create({
-    baseURL: process.env.API_URL || 'http://localhost:8080/api',
+    baseURL: process.env.API_URL || 'http://34.31.127.201:8080',
   });
 
   useEffect(() => {
     const number = new URLSearchParams(document.location.search).get('number');
-    api.get(`/fibonacci?number=${number}`, {}).then((res) => {
+    api.get(`api/fibonacci?number=${number}`, {}).then((res) => {
       setFibonacci(res.data.message);
     }).catch((res) => {
       setFibonacci(res.data.message)
     });
-    api.get(`/factorial?number=${number}`, {}).then((res) => {
+    api.get(`api/factorial?number=${number}`, {}).then((res) => {
       setFactorial(res.data.message);
     }).catch((res) => {
       setFactorial(res.data.message)
