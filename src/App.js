@@ -7,7 +7,7 @@ function App() {
   const [fibonacci, setFibonacci] = useState("Carregando");
   const [factorial, setFactorial] = useState("Carregando");
 
-  const baseURL = `${window.location.href.slice(0, window.location.href.indexOf('app') - 1)}/api`;
+  const baseURL = `https://cloud-run-monolithic-wyr65pywkq-uc.a.run.app/api`;
 
   const api = axios.create({
     baseURL
